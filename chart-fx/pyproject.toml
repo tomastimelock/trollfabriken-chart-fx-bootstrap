@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chart-fx"
+version = "0.1.0"
+description = "Animated chart and data visualization effects for video production"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "build", "twine"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chart_fx"]
