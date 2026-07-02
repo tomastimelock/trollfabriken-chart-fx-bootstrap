@@ -125,7 +125,7 @@ class FunnelEffect(ChartEffect):
             alpha_i = (
                 1.0
                 if phase != "enter" or i < n_show - 1
-                else progress * n - (n_show - 1)
+                else min(1.0, max(0.0, progress * n - (n_show - 1)))
             )
             y = 1.0 - height * (i + 1)
             rect = plt.Rectangle(
@@ -219,7 +219,7 @@ class SankeyEffect(ChartEffect):
             alpha_i = (
                 1.0
                 if phase != "enter" or i < n_show - 1
-                else (progress * len(links) - (n_show - 1))
+                else min(1.0, max(0.0, progress * len(links) - (n_show - 1)))
             )
             ax.annotate(
                 "",
